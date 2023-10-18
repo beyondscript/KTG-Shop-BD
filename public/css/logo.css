@@ -1,0 +1,8 @@
+.logo{
+  color: #39C74D;
+}
+
+.logo:hover{
+  color: #FF2048;
+  text-decoration: none;
+}

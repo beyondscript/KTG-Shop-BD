@@ -1,0 +1,110 @@
+{
+  "_jquery-sparkline-0826a892.js": {
+    "file": "assets/jquery-sparkline-0826a892.js"
+  },
+  "public/css/app.css": {
+    "file": "assets/app-3d0b7814.css",
+    "isEntry": true,
+    "src": "public/css/app.css"
+  },
+  "public/css/default-css.css": {
+    "file": "assets/default-css-333ef216.css",
+    "isEntry": true,
+    "src": "public/css/default-css.css"
+  },
+  "public/css/logo.css": {
+    "file": "assets/logo-831236e8.css",
+    "isEntry": true,
+    "src": "public/css/logo.css"
+  },
+  "public/css/responsive.css": {
+    "file": "assets/responsive-1040f4d6.css",
+    "isEntry": true,
+    "src": "public/css/responsive.css"
+  },
+  "public/css/style.css": {
+    "file": "assets/style-b03c128d.css",
+    "isEntry": true,
+    "src": "public/css/style.css"
+  },
+  "public/css/styles.css": {
+    "file": "assets/styles-f145968f.css",
+    "isEntry": true,
+    "src": "public/css/styles.css"
+  },
+  "public/css/typography.css": {
+    "file": "assets/typography-15cfa93d.css",
+    "isEntry": true,
+    "src": "public/css/typography.css"
+  },
+  "public/frontend/css/main.css": {
+    "file": "assets/main-e1024c59.css",
+    "isEntry": true,
+    "src": "public/frontend/css/main.css"
+  },
+  "public/frontend/css/style.css": {
+    "file": "assets/style-ab9dfaf3.css",
+    "isEntry": true,
+    "src": "public/frontend/css/style.css"
+  },
+  "public/frontend/fonts/montserrat/Montserrat-Bold.ttf": {
+    "file": "assets/Montserrat-Bold-c4c8cb57.ttf",
+    "src": "public/frontend/fonts/montserrat/Montserrat-Bold.ttf"
+  },
+  "public/frontend/fonts/montserrat/Montserrat-ExtraBold.ttf": {
+    "file": "assets/Montserrat-ExtraBold-257af9a0.ttf",
+    "src": "public/frontend/fonts/montserrat/Montserrat-ExtraBold.ttf"
+  },
+  "public/frontend/fonts/montserrat/Montserrat-Regular.ttf": {
+    "file": "assets/Montserrat-Regular-077cdab1.ttf",
+    "src": "public/frontend/fonts/montserrat/Montserrat-Regular.ttf"
+  },
+  "public/frontend/js/main.js": {
+    "file": "assets/main-67634014.js",
+    "isEntry": true,
+    "src": "public/frontend/js/main.js"
+  },
+  "public/js/bt-maxLength.js": {
+    "file": "assets/bt-maxLength-75e0d519.js",
+    "isEntry": true,
+    "src": "public/js/bt-maxLength.js"
+  },
+  "public/js/dashboard_1.js": {
+    "file": "assets/dashboard_1-5e4f12d1.js",
+    "isEntry": true,
+    "src": "public/js/dashboard_1.js"
+  },
+  "public/js/data-table.js": {
+    "file": "assets/data-table-9f765f11.js",
+    "isEntry": true,
+    "src": "public/js/data-table.js"
+  },
+  "public/js/hoverable-collapse.js": {
+    "file": "assets/hoverable-collapse-9842e65b.js",
+    "isEntry": true,
+    "src": "public/js/hoverable-collapse.js"
+  },
+  "public/js/misc.js": {
+    "file": "assets/misc-82a5f9fe.js",
+    "isEntry": true,
+    "src": "public/js/misc.js"
+  },
+  "public/js/off-canvas.js": {
+    "file": "assets/off-canvas-918c8707.js",
+    "isEntry": true,
+    "src": "public/js/off-canvas.js"
+  },
+  "public/js/settings.js": {
+    "file": "assets/settings-464c3e9b.js",
+    "isEntry": true,
+    "src": "public/js/settings.js"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-592b8af2.js",
+    "imports": [
+      "_jquery-sparkline-0826a892.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}

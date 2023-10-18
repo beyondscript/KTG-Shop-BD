@@ -1,0 +1,32 @@
+html {
+    height: 100%;
+    cursor: auto;
+}
+body {
+    height: 95%;
+    color: #495057;
+    font-size: 1rem;
+    font-family: "Roboto", sans-serif;
+    margin: 5px;
+}
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-track:hover {
+    background-color: #eee;
+}
+::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
