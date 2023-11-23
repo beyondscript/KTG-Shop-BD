@@ -58,7 +58,7 @@ class FrontendController extends Controller
         $latest_check = Carbon::now()->subMonth(6)->toDateTimeString();
         if (isset($search_product) && !$brand_id->isEmpty()) {
             $product=Product::where('brand_id', $brand_id)->orWhere('productname', 'like', '%' . $search_product . '%')->orWhere('productmodel', 'like', '%' . $search_product . '%')->orderBy('productname', 'ASC')->paginate(12);
-            $product_all=Product::where('brand_id', $brand_id)->orWhere('productname', 'like', '%' . $search_product . '%')->orWhere('productmodel', 'like', '%' . $search_product . '%')->orderBy('productname', 'ASC')->get();
+            $product_all=Product::where('brand_id', $brand_id)->orWhere('productname', 'like', '%' . $search_product . '%')->orWhere('productmodel', 'like', '%' . $search_product . '%')->orderBy('productname', 'ASC')->count();
             $product->appends(['product' => $search_product]);
             $brand=Brand::orderBy('brandname', 'ASC')->get();
             $best_selling_product=Product::orderBy('sales', 'DESC')->take(3)->get();
@@ -66,7 +66,7 @@ class FrontendController extends Controller
         }
         elseif (isset($search_product) && !$category_id->isEmpty()) {
             $product=Product::where('category_id', $category_id)->orWhere('productname', 'like', '%' . $search_product . '%')->orWhere('productmodel', 'like', '%' . $search_product . '%')->orderBy('productname', 'ASC')->paginate(12);
-            $product_all=Product::where('category_id', $category_id)->orWhere('productname', 'like', '%' . $search_product . '%')->orWhere('productmodel', 'like', '%' . $search_product . '%')->orderBy('productname', 'ASC')->get();
+            $product_all=Product::where('category_id', $category_id)->orWhere('productname', 'like', '%' . $search_product . '%')->orWhere('productmodel', 'like', '%' . $search_product . '%')->orderBy('productname', 'ASC')->count();
             $product->appends(['product' => $search_product]);
             $brand=Brand::orderBy('brandname', 'ASC')->get();
             $best_selling_product=Product::orderBy('sales', 'DESC')->take(3)->get();
@@ -74,7 +74,7 @@ class FrontendController extends Controller
         }
         elseif(isset($search_product)) {
             $product=Product::where('productname', 'like', '%' . $search_product . '%')->orWhere('productmodel', 'like', '%' . $search_product . '%')->orderBy('productname', 'ASC')->paginate(12);
-            $product_all=Product::where('productname', 'like', '%' . $search_product . '%')->orWhere('productmodel', 'like', '%' . $search_product . '%')->orderBy('productname', 'ASC')->get();
+            $product_all=Product::where('productname', 'like', '%' . $search_product . '%')->orWhere('productmodel', 'like', '%' . $search_product . '%')->orderBy('productname', 'ASC')->count();
             $product->appends(['product' => $search_product]);
             $brand=Brand::orderBy('brandname', 'ASC')->get();
             $best_selling_product=Product::orderBy('sales', 'DESC')->take(3)->get();
@@ -109,7 +109,7 @@ class FrontendController extends Controller
         $user_id=Auth::user()->id;
         $product_id=Wishlist::where('user_id', $user_id)->pluck('product_id');
         $product=Product::whereIn('id', $product_id)->paginate(12);
-        $product_all=Product::whereIn('id', $product_id)->get();
+        $product_all=Product::whereIn('id', $product_id)->count();
         $latest_check = Carbon::now()->subMonth(6)->toDateTimeString();
         return view('wishlist', compact('brand', 'best_selling_product', 'product', 'product_all', 'latest_check'));
     }
@@ -133,7 +133,7 @@ class FrontendController extends Controller
         $best_selling_product=Product::orderBy('sales', 'DESC')->take(3)->get();
         $category=Category::findorfail($id);
         $product=Product::where('category_id', $id)->paginate(9);
-        $product_all=Product::where('category_id', $id)->get();
+        $product_all=Product::where('category_id', $id)->count();
         $latest_check = Carbon::now()->subMonth(6)->toDateTimeString();
         return view('category_wise', compact('brand', 'best_selling_product', 'category', 'product', 'product_all', 'latest_check'));
     }
@@ -145,12 +145,12 @@ class FrontendController extends Controller
         $latest_check = Carbon::now()->subMonth(6)->toDateTimeString();
         if ($brand_id == 0) {
             $product=Product::where('category_id', $cat_id)->paginate(9);
-            $product_all=Product::where('category_id', $cat_id)->get();
+            $product_all=Product::where('category_id', $cat_id)->count();
             return view('category_wise_brand', compact('product', 'product_all', 'latest_check'));
         }
         else{
             $product=Product::where('category_id', $cat_id)->where('brand_id', $brand_id)->paginate(9);
-            $product_all=Product::where('category_id', $cat_id)->where('brand_id', $brand_id)->get();
+            $product_all=Product::where('category_id', $cat_id)->where('brand_id', $brand_id)->count();
             return view('category_wise_brand', compact('product', 'product_all', 'latest_check'));
         }
     }
@@ -162,7 +162,7 @@ class FrontendController extends Controller
         $best_selling_product=Product::orderBy('sales', 'DESC')->take(3)->get();
         $brand2=Brand::findorfail($id);
         $product=Product::where('brand_id', $id)->paginate(9);
-        $product_all=Product::where('brand_id', $id)->get();
+        $product_all=Product::where('brand_id', $id)->count();
         $latest_check = Carbon::now()->subMonth(6)->toDateTimeString();
         return view('brand_wise', compact('category', 'brand', 'best_selling_product', 'brand2', 'product', 'product_all', 'latest_check'));
     }
@@ -174,12 +174,12 @@ class FrontendController extends Controller
         $latest_check = Carbon::now()->subMonth(6)->toDateTimeString();
         if ($cat_id == 0) {
             $product=Product::where('brand_id', $brand_id)->paginate(9);
-            $product_all=Product::where('brand_id', $brand_id)->get();
+            $product_all=Product::where('brand_id', $brand_id)->count();
             return view('brand_wise_category', compact('product', 'product_all', 'latest_check'));
         }
         else{
             $product=Product::where('brand_id', $brand_id)->where('category_id', $cat_id)->paginate(9);
-            $product_all=Product::where('brand_id', $brand_id)->where('category_id', $cat_id)->get();
+            $product_all=Product::where('brand_id', $brand_id)->where('category_id', $cat_id)->count();
             return view('brand_wise_category', compact('product', 'product_all', 'latest_check'));
         }
     }
@@ -189,7 +189,7 @@ class FrontendController extends Controller
         $brand=Brand::orderBy('brandname', 'ASC')->get();
         $best_selling_product=Product::orderBy('sales', 'DESC')->take(3)->get();
         $product=Product::orderBy('productname', 'ASC')->paginate(12);
-        $product_all=Product::orderBy('productname', 'ASC')->get();
+        $product_all=Product::orderBy('productname', 'ASC')->count();
         $latest_check = Carbon::now()->subMonth(6)->toDateTimeString();
         return view('product_store', compact('brand', 'best_selling_product', 'product', 'product_all', 'latest_check'));
     }
@@ -213,7 +213,7 @@ class FrontendController extends Controller
         $product=Product::findorfail($id);
         $review=Review::where('product_id', $id)->orderBy('id', 'ASC')->paginate(3);
         $category_id=$product->category_id;
-        $related_product=Product::where('id', '!=', $id)->where('category_id', $category_id)->get();
+        $related_product=Product::where('id', '!=', $id)->where('category_id', $category_id)->orderBy('created_at', 'DESC')->take(12)->get();
         $latest_check = Carbon::now()->subMonth(6)->toDateTimeString();
         return view('product_detail', compact('brand', 'best_selling_product', 'product', 'review', 'related_product', 'latest_check'));
     }
@@ -707,7 +707,7 @@ class FrontendController extends Controller
         $brand=Brand::orderBy('brandname', 'ASC')->get();
         $best_selling_product=Product::orderBy('sales', 'DESC')->take(3)->get();
         $product=Product::where('category_id', $hotdeal->category_id)->paginate(12);
-        $product_all=Product::where('category_id', $hotdeal->category_id)->get();
+        $product_all=Product::where('category_id', $hotdeal->category_id)->count();
         $latest_check = Carbon::now()->subMonth(6)->toDateTimeString();
         return view('hot_deal', compact('brand', 'best_selling_product', 'product', 'product_all', 'latest_check'));
     }

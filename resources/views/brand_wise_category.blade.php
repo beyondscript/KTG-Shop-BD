@@ -117,7 +117,7 @@
                     </div>
 					<div class="store-filter clearfix">
                         <span class="store-qty">
-                            {{ __('Showing ') }}{{$product->count()}}{{ __(' of ') }}{{$product_all->count()}}{{ __(' products') }}
+                            {{ __('Showing ') }}{{$product->count()}}{{ __(' of ') }}{{$product_all}}{{ __(' products') }}
                         </span>
                         {{$product->links('partials.pagination')}}
                     </div>
